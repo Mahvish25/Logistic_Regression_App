@@ -25,7 +25,7 @@ if upload_file is not None:
     target = 'Purchased'
 
     X = product_df[features]
-    y = product_df[target]
+    y = product_df[target].astype(int) 
 
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(X)
