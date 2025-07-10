@@ -2,7 +2,7 @@
 
 This app performs logistic regression to predict purchase decisions based on user data.
 
-🚀 **Live App:** [Click here to open]((https://logisticregressionapp-rojk7fxvsfwkfsw696rcmk.streamlit.app/))
+🚀 **Live App:** [Click here to open]((https://logisticregressionapp-khkqinmzpcvtnf6ryygdapp.streamlit.app/))
 
 📁 Upload a CSV file with columns like `Age`, `EstimatedSalary`, and `Purchased`.
 
