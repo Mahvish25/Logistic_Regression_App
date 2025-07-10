@@ -25,15 +25,12 @@ if upload_file is not None:
     target = 'Purchased'
 
     X = product_df[features]
-    y = product_df[target].astype(int) 
+    y = product_df[target]
 
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(X)
 
-    smote = SMOTE(random_state=0)
-    X_resampled, y_resampled = smote.fit_resample(X_scaled, y)
-
-    X_train, X_test, y_train, y_test = train_test_split(X_resampled, y_resampled, test_size=0.2, random_state=0)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 
     model = LogisticRegression(class_weight='balanced')
     model.fit(X_train, y_train)
