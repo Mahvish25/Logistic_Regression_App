@@ -13,7 +13,10 @@ st.title("Logistic Regression on Purchase Prediction")
 
 upload_file = st.file_uploader("Upload your csv file", type=["csv"])
 if upload_file is not None:
-    product_df = pd.read_csv(upload_file)
+    try:
+        product_df = pd.read_csv(upload_file)
+    except Exception as e:
+        st.error(f"Error: {e}")
 
     st.subheader("logisticreg_data")
     st.write(product_df.head())
@@ -30,7 +33,7 @@ if upload_file is not None:
     smote = SMOTE(random_state=0)
     X_resampled, y_resampled = smote.fit_resample(X_scaled, y)
 
-    X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=0)
+    X_train, X_test, y_train, y_test = train_test_split(X_resampled, y_resampled, test_size=0.2, random_state=0)
 
     model = LogisticRegression(class_weight='balanced')
     model.fit(X_train, y_train)
