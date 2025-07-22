@@ -11,12 +11,9 @@ from sklearn.metrics import confusion_matrix, accuracy_score
 
 st.title("Logistic Regression on Purchase Prediction")
 
-upload_file = st.file_uploader("Upload your csv file", type=["csv"])
+upload_file = st.file_uploader(" ", type=["csv"])
 if upload_file is not None:
-    try:
-        product_df = pd.read_csv(upload_file)
-    except Exception as e:
-        st.error(f"Error: {e}")
+    product_df = pd.read_csv(upload_file)
 
     st.subheader("logisticreg_data")
     st.write(product_df.head())
